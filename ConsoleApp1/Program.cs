@@ -33,9 +33,8 @@ class Program
                 ciudad.Cantidad_habitantes = int.Parse(Console.ReadLine());
                 Console.WriteLine("Ingrese la superficie en kilometros");
                 ciudad.Superficie = int.Parse(Console.ReadLine());
-
                 
-                Ciudad.Add(ciudad);
+                provincia.Ciudades.Add(ciudad);
                 Console.WriteLine("Ingrese el nombre de la ciudad");
                 nombreciudad = Console.ReadLine();
             }
@@ -44,6 +43,7 @@ class Program
             nombreprovincia = Console.ReadLine();
 
         }
+
         foreach (var Provincia in provincias)
         {
             Console.WriteLine($"Provincia");
@@ -51,10 +51,12 @@ class Program
             Console.WriteLine($"Gobernador: {Provincia.Gobernador}");
             Console.WriteLine($"Region: {Provincia.Region}");
 
-            foreach (var Ciudad in ciudad)
+            foreach (var Ciudad in Provincia.Ciudades)
             {
                 Console.WriteLine($"Ciudades");
                 Console.WriteLine($"Ciudad: {Ciudad.Nombre}");
+                Console.WriteLine($"Habitantes: {Ciudad.Cantidad_habitantes}");
+                Console.WriteLine($"Superficie km²: {Ciudad.Superficie}");
             }
 
         }
