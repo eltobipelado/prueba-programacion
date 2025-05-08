@@ -11,5 +11,6 @@ namespace ConsoleApp1
         public string Nombre { get; set; }
         public int Cantidad_habitantes { get; set; }
         public int Superficie { get; set; }
+        public int mashabitantes { get; set; }
     }
 }
