@@ -73,29 +73,9 @@ class Program
         
         Ciudad ciudadmaspoblada = null;
         Ciudad ciudadmayorsuperficie = null;
-        Provincia provinciamaspoblada = null;
-        Provincia provinciamayorsuperficie = null;
-
-        int maxhabitantesprovincia = 0;
-        int maxSuperficieProvincia = 0;
 
         foreach (var provincia in provincias)
         {
-            int totalhabitantes = provincia.Ciudades.Sum(c => c.Cantidad_habitantes);
-            int totalsuperficie = provincia.Ciudades.Sum(c => c.Superficie);
-
-            if (totalhabitantes > maxhabitantesprovincia)
-            {
-                maxhabitantesprovincia = totalhabitantes;
-                provinciamaspoblada = provincia;
-            }
-
-            if (totalsuperficie > maxsuperficieprovincia)
-            {
-                maxsuperficieprovincia = totalsuperficie;
-                provinciamayorsuperficie = provincia;
-            }
-
             foreach (var ciudad in provincia.Ciudades)
             {
                 if (ciudadmaspoblada == null || ciudad.Cantidad_habitantes > ciudadmaspoblada.Cantidad_habitantes)
@@ -109,8 +89,6 @@ class Program
         Console.WriteLine("Resumen estadistico");
         Console.WriteLine($"Ciudad mas poblada: {ciudadmaspoblada.Nombre} ({ciudadmaspoblada.Cantidad_habitantes} habitantes)");
         Console.WriteLine($"Ciudad con mayor superficie: {ciudadmayorsuperficie.Nombre} ({ciudadmayorsuperficie.Superficie} km²)");
-        Console.WriteLine($"Provincia mas poblada: {provinciamaspoblada.Nombre} ({maxhabitantesprovincia} habitantes)");
-        Console.WriteLine($"Provincia con mayor superficie: {provinciamayorsuperficie.Nombre} ({maxSuperficieProvincia} km²)");
     }
 }
 
