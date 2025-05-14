@@ -6,7 +6,7 @@ using System.Linq;
 
 class Program
 {
-    private static int maxsuperficieprovincia;
+    
 
     static void Main(string[]args)
     {
